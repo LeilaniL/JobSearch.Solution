@@ -6,6 +6,7 @@ using System.IO;
 using System.Text;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+// using OpenQA.Selenium.Chrome.ChromeOptions;
 
 
 namespace JobSearch.Models
@@ -49,26 +50,21 @@ namespace JobSearch.Models
         {
 
             // Check operating system
-            string driverLocation = "";
-            string osName = System.Runtime.InteropServices.RuntimeInformation.OSDescription.ToLower();
-
-            Console.WriteLine(osName);
-
-            if (osName.Contains("windows"))
-            {
-                driverLocation = "..\\JobSearch\\wwwroot\\drivers-win";
-            }
-            else
-            {
-                driverLocation = "../JobSearch/wwwroot/drivers";
-            }
+            // TODO: Put back OS check and Mac options
+            // string driverLocation = "..\\JobSearch\\wwwroot\\drivers-win";
+            // ChromeOptions options = new ChromeOptions();
+            // options.setBinary("..\\JobSearch\\wwwroot\\drivers-win");
+            // options.addExtensions(new File("..\\JobSearch\\wwwroot\\drivers-win"));
+            // System.Environment.SetEnvironmentVariable("webdriver.chrome.driver", "..\\JobSearch\\wwwroot\\drivers-win");
+            
             List<CraigslistClass> craigslistJobs = new List<CraigslistClass> { };
             string tempTitle = "";
             string tempLink = "";
             string tempLocation = "";
             string tempDate = "";
             // Initialize the Chrome Driver
-            ChromeDriver driver = new ChromeDriver(driverLocation);
+            
+            ChromeDriver driver = new ChromeDriver("C:\\WebDriver\\bin");
 
             try
             {
